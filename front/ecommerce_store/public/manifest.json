@@ -1,0 +1,23 @@
+{
+  "name": "Ecommerce store",
+  "lang":"en-US",
+  "description":"Ecommerce store build with react and laravel",
+  "short_name": "Ecommerce store",
+  "start_url": "/",
+  "orientation":"portrait",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#3f157b",
+  "icons": [
+    {
+    "src":"favicon.webp",
+    "sizes":"144x144",
+    "type":"image/webp"
+    },
+     {
+    "src":"logo.png",
+    "sizes":"200x200",
+    "type":"image/png"
+}
+  ]
+}
