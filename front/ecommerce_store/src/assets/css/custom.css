@@ -34,3 +34,7 @@ dl, ol, ul {
     overflow-anchor: none;
     transition: var(--bs-accordion-transition);
 }
+
+.logo{
+    border-radius: 10px;
+}

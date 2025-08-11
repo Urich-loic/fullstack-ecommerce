@@ -23,7 +23,7 @@ export default function HomeSliders() {
               <Slider {...settings}>
                 <div className="slider-img overflow-hidden rounded-xl">
                   <img
-                    src="/src/assets/images/slider1.jpg"
+                    src="/src/assets/images/slider1.png"
                     alt=""
                     style={{
                       width: "100%",
@@ -35,7 +35,7 @@ export default function HomeSliders() {
                 </div>
                 <div className="slider-img overflow-hidden rounded-xl">
                   <img
-                    src="/src/assets/images/slider2.jpg"
+                    src="/src/assets/images/slider2.png"
                     alt=""
                     style={{
                       width: "100%",
@@ -48,7 +48,7 @@ export default function HomeSliders() {
 
                 <div className="slider-img overflow-hidden rounded-xl">
                   <img
-                    src="/src/assets/images/slider1.jpg"
+                    src="/src/assets/images/slider1.png"
                     alt=""
                     style={{
                       width: "100%",
