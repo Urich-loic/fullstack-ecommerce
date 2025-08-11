@@ -5,13 +5,24 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import Offcanvas from "react-bootstrap/Offcanvas";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import logo from "/logo.png";
 import Row from "react-bootstrap/esm/Row";
 import Col from "react-bootstrap/esm/Col";
 import Accordion from "react-bootstrap/Accordion";
+import { useEffect } from "react";
+import gsap from "gsap";
 
-function OffcanvasExample() {
+
+export default function HeaderMobile() {
+
+  let location = useLocation();
+
+  useEffect(() => {
+    gsap.fromTo(".content", { opacity: 0, x: 300 }, { opacity: 1, x: 0 });
+  }, [location]);
+
+
   const accordions = [
     { title: " Men's clothing", content: ["Carrot", "Lettuce", "Tomato"] },
     { title: " Men's clothing", content: ["Carrot", "Lettuce", "Tomato"] },
@@ -67,7 +78,7 @@ function OffcanvasExample() {
               </Col>
 
               <Col xl={4} md={4} sm={6} className="text-right header-icons">
-                <Link to="" className="btn">
+                <Link to="/notification" className="btn">
                   <span class="material-symbols-outlined">notifications</span>
                   <span className="badge text-white bg-danger">2</span>
                 </Link>
@@ -172,4 +183,4 @@ function OffcanvasExample() {
   );
 }
 
-export default OffcanvasExample;
+

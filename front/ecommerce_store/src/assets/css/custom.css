@@ -67,3 +67,7 @@ border-radius: 10px!important;
         display: none;
     }
 }
+
+.content{
+    padding:8em 0 4em;
+}

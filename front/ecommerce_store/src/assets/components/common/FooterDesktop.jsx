@@ -19,13 +19,20 @@ export default function FooterDesktop() {
           </Col>
 
           <Col xl={3} lg={3} md={3} sm={6} xs={6} className="">
-            <h5 className="footer-menu-title text-left">Office adress</h5>
+            <h5 className="footer-menu-title text-left">The company</h5>
             <ul className="p-0">
               <li>
-                <Link className="footer-link" to={"#"}>
-                  NovaTech Solutions
+                <Link className="footer-link" to={"/"}>
+                  Home
                 </Link>
               </li>
+
+               <li>
+                <Link className="footer-link" to={"/contact"}>
+                  Contact
+                </Link>
+              </li>
+
               <li>
                 <Link className="footer-link" to={"#"}>
                   contact@novatechsolutions.com
@@ -36,25 +43,35 @@ export default function FooterDesktop() {
                   452 Innovation Drive, Douala, Cameroon
                 </Link>
               </li>
+              <li>
+                <Link className="footer-link" to={"/login"}>
+                  Login
+                </Link>
+              </li>
             </ul>
           </Col>
 
           <Col xl={3} lg={3} md={3} sm={6} xs={6} className="">
-            <h5 className="footer-menu-title text-left">Policy</h5>
+            <h5 className="footer-menu-title text-left">More infos</h5>
             <ul className="p-0">
               <li>
-                <Link className="footer-link" to={"#"}>
+                <Link className="footer-link" to={"/refund-policy"}>
                   Refund policy
                 </Link>
               </li>
               <li>
-                <Link className="footer-link" to={"#"}>
+                <Link className="footer-link" to={"/shipping-policy"}>
                   Shipping policy
                 </Link>
               </li>
               <li>
-                <Link className="footer-link" to={"#"}>
+                <Link className="footer-link" to={"/terms-of-use"}>
                   Terms of use
+                </Link>
+              </li>
+               <li>
+                <Link className="footer-link" to={"/purchase-policy"}>
+                  Purchase policy
                 </Link>
               </li>
             </ul>
