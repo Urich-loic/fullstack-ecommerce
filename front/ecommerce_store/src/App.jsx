@@ -1,17 +1,22 @@
 import Button from "react-bootstrap/Button";
 import { BrowserRouter, Outlet } from "react-router-dom";
-import './assets/css/fontawesome.css'
+import "./assets/css/fontawesome.css";
 
 import "./App.css";
-import HeaderDesktop from "./assets/components/common/headerDesktop";
+import HeaderDesktop from "./assets/components/common/HeaderDesktop.jsx";
+import HeaderMobile from "./assets/components/common/HeaderMobile.jsx";
+import Header from "./assets/components/common/Header.jsx";
 
 function App() {
-  return <>
-      <HeaderDesktop/>
+  return (
+    <>
+      <Header />
+
       <main>
-        <Outlet/>
+        <Outlet />
       </main>
-  </>;
+    </>
+  );
 }
 
 export default App;

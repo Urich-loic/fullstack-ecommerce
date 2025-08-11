@@ -2,26 +2,34 @@
      width: 100% !important;
      text-decoration: none;
      border: none !important;
-     border-radius: 0% !important;
-     box-shadow: 0 0 4px 0 rgba(57, 78, 234, 0.1)
+     border-radius: 8px !important;
+     box-shadow: 0 0 4px 0 rgba(57, 78, 234, 0.1);
+     padding: 15px;
+ }
+
+ .card-body {
+     padding: 15px 5px;
  }
  .card:hover {
      border-radius: 0% !important;
      text-decoration: none;
-     box-shadow: 0 0 12px 0 rgba(57, 78, 234, 0.1)
+     box-shadow: 0 0 12px 0 rgba(57, 78, 234, 0.1);
+
  }
  
  .image-box {
      position: relative;
      margin: auto;
      overflow: hidden;
-     width: 100% !important;
+     width: 70% !important;
  }
  .image-box img {
-     width: 150px !important;
+     width: 100% !important;
      transition: all 0.3s;
      display: block;
-     height: 250px !important;
+     height: auto !important;
+     object-fit: contain;
+     object-position: center;
      transform: scale(1);
  }
  .image-box:hover img {

@@ -6,6 +6,8 @@ import "./assets/css/fontawesome.min.css";
 import "./assets/css/fontawesome.css";
 import "./assets/css/custom.css";
 import "./assets/css/animate.min.css"
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 import Home from "./assets/pages/Home.jsx";
 import About from "./assets/pages/About.jsx";
