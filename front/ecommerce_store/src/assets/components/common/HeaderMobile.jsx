@@ -81,7 +81,7 @@ function OffcanvasExample() {
                   <span className="badge text-white bg-danger">2</span>
                 </button>
 
-                <Link to="" className="btn">
+                <Link to="/login" className="btn">
                   Login
                 </Link>
               </Col>
@@ -142,6 +142,9 @@ function OffcanvasExample() {
                           </Accordion.Item>
                         ))}
                       </Accordion>
+                      <Link to="/login" className="btn text-left">
+                        Login
+                      </Link>
                     </Nav>
                     <div className="d-flex searchContainer gap-3 mt-3">
                       <input

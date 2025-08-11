@@ -15,6 +15,25 @@
     overflow: paged-y;
     box-shadow: none;
 }
+
+.accordionMenuDivMobile.accordion {
+    background-color: transparent;
+    color: #444;
+    cursor: pointer;
+    padding: 7px;
+    border: 0 !important;
+    width: 100%;
+    border-radius: 6px;
+    font-size: 14px;
+    text-align: left;
+    outline: none;
+    font-weight: 600;
+    font-family: 'Roboto Condensed', sans-serif;
+    transition: 0.4s;
+    overflow: paged-y;
+    box-shadow: none;
+} 
+
  .active.accordion:hover {
      color: #ffffff;
      font-weight: 400;

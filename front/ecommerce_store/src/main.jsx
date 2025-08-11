@@ -11,6 +11,7 @@ import "slick-carousel/slick/slick-theme.css";
 
 import Home from "./assets/pages/Home.jsx";
 import About from "./assets/pages/About.jsx";
+import UserLogin from "./assets/pages/UserLogin.jsx";
 
 const router = createBrowserRouter([
   {
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
       {
         path: '/about',
         element: <About />,
+      },
+      {
+        path: '/login',
+        element: <UserLogin />,
       }
     ],
   },

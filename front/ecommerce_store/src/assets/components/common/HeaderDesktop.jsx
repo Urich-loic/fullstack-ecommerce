@@ -56,7 +56,7 @@ export default function HeaderDesktop() {
                 <span class="material-symbols-outlined">settings_phone</span>
               </Link>
 
-              <Link to="" className="btn">
+              <Link to="/login" className="btn">
                 Login
               </Link>
 

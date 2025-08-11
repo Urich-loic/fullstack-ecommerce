@@ -38,3 +38,32 @@ dl, ol, ul {
 .logo{
     border-radius: 10px;
 }
+
+.btn{
+border-radius: 10px!important;
+}
+
+.login-image{
+    width: 50%;
+}
+
+.login-image img{
+    width: 100%;
+}
+
+.login-section{
+    display: flex;
+    align-items: center;
+}
+
+.login-row{
+    padding-top: 4rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+@media only screen and (max-width:767px){
+    .Desktop{
+        display: none;
+    }
+}
