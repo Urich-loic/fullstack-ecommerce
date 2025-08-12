@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Col from "react-bootstrap/esm/Col";
 import Container from "react-bootstrap/esm/Container";
 import Row from "react-bootstrap/esm/Row";
@@ -6,8 +6,28 @@ import "../../css/FooterDesktop.css";
 import { Link } from "react-router-dom";
 import download from "../../images/download.png";
 import logo from "../../../../public/logo.png";
+import axios from "axios";
+import AppUrl from "../../../api/AppUrl";
 
 export default function FooterDesktop() {
+
+  const GetUserData = () => {
+    try {
+      axios
+        .get('/get-visitor')
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    } catch (error) {
+      throw Error(error)
+    }
+  };
+
+  useEffect(() => GetUserData(), []);
+
   return (
     <div className="py-5 footerback">
       <Container fluid={false}>
@@ -28,6 +48,12 @@ export default function FooterDesktop() {
               </li>
 
                <li>
+                <Link className="about-us" to={"/about-us"}>
+                  About
+                </Link>
+              </li>
+
+              <li>
                 <Link className="footer-link" to={"/contact"}>
                   Contact
                 </Link>
@@ -69,7 +95,7 @@ export default function FooterDesktop() {
                   Terms of use
                 </Link>
               </li>
-               <li>
+              <li>
                 <Link className="footer-link" to={"/purchase-policy"}>
                   Purchase policy
                 </Link>
@@ -85,9 +111,7 @@ export default function FooterDesktop() {
                 </Link>
               </li>
             </ul>
-            <div id="google_translate_element">
-               En
-            </div>
+            <div id="google_translate_element">En</div>
           </Col>
         </Row>
       </Container>

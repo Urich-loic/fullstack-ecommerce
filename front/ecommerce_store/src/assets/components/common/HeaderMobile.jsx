@@ -11,7 +11,7 @@ import burgerBar from "/burgerBar.png";
 import Row from "react-bootstrap/esm/Row";
 import Col from "react-bootstrap/esm/Col";
 import Accordion from "react-bootstrap/Accordion";
-import { use, useEffect, useState } from "react";
+import {  useEffect, useState } from "react";
 import gsap from "gsap";
 import MegaMenu from "../home/MegaMenu";
 
@@ -132,7 +132,7 @@ export default function HeaderMobile() {
                     type="button"
                     className="btn site-btn rounded-b-full border overflow-hidden"
                   >
-                    <span class="material-symbols-outlined search-btn">
+                    <span className="material-symbols-outlined search-btn">
                       search
                     </span>
                   </button>
@@ -141,21 +141,21 @@ export default function HeaderMobile() {
 
               <Col xl={4} md={4} sm={6} className="text-right header-icons">
                 <Link to="/notification" className="btn">
-                  <span class="material-symbols-outlined">notifications</span>
+                  <span className="material-symbols-outlined">notifications</span>
                   <span className="badge text-white bg-danger">2</span>
                 </Link>
 
                 <Link to="/favorite" className="btn">
-                  <span class="material-symbols-outlined">favorite</span>
+                  <span className="material-symbols-outlined">favorite</span>
                   <span className="badge text-white bg-danger">2</span>
                 </Link>
 
                 <Link to="" className="btn">
-                  <span class="material-symbols-outlined">settings_phone</span>
+                  <span className="material-symbols-outlined">settings_phone</span>
                 </Link>
 
                 <Link to="/cart" className="btn">
-                  <span class="material-symbols-outlined">shopping_cart</span>
+                  <span className="material-symbols-outlined">shopping_cart</span>
                   <span className="badge text-white bg-danger">2</span>
                 </Link>
 
@@ -236,7 +236,7 @@ export default function HeaderMobile() {
                         type="button"
                         className="btn site-btn rounded-b-full border overflow-hidden"
                       >
-                        <span class="material-symbols-outlined search-btn">
+                        <span className="material-symbols-outlined search-btn">
                           search
                         </span>
                       </button>

@@ -19,7 +19,7 @@ export default function Cart() {
                     <img className=" h-100" src={Product1} width={200} />
                   </Col>
 
-                  <Col md={6} lg={6} sm={6} xs={6}>
+                  <Col md={6} lg={6} sm={6} xs={6} className="text-left">
                     <h5 className="product-name">
                       ASUS TUF A15 FA506IU Ryzen 7 4800H GTX
                     </h5>
@@ -51,7 +51,7 @@ export default function Cart() {
                     <img className=" h-100" src={Product1} width={200}/>
                   </Col>
 
-                  <Col md={6} lg={6} sm={6} xs={6}>
+                  <Col md={6} lg={6} sm={6} xs={6} className="text-left">
                     <h5 className="product-name">
                       ASUS TUF A15 FA506IU Ryzen 7 4800H GTX
                     </h5>
@@ -83,7 +83,7 @@ export default function Cart() {
                     <img className=" h-100" src={Product1} width={200} />
                   </Col>
 
-                  <Col md={6} lg={6} sm={6} xs={6}>
+                  <Col md={6} lg={6} sm={6} xs={6} className="text-left">
                     <h5 className="product-name">
                       ASUS TUF A15 FA506IU Ryzen 7 4800H GTX
                     </h5>
@@ -115,7 +115,7 @@ export default function Cart() {
                     <img className=" h-100" src={Product1} width={200} />
                   </Col>
 
-                  <Col md={6} lg={6} sm={6} xs={6}>
+                  <Col md={6} lg={6} sm={6} xs={6} className="text-left">
                     <h5 className="product-name">
                       ASUS TUF A15 FA506IU Ryzen 7 4800H GTX
                     </h5>

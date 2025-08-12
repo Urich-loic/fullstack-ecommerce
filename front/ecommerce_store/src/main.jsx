@@ -8,11 +8,9 @@ import "./assets/css/custom.css";
 import "./assets/css/animate.min.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
 import Home from "./assets/pages/Home.jsx";
-import About from "./assets/pages/About.jsx";
 import UserLogin from "./assets/pages/UserLogin.jsx";
-import Contact from "./assets/pages/Contact.jsx";
+import Contact from "./assets/pages/ContactPage.jsx";
 import Refund from "./assets/pages/Refund.jsx";
 import Shipping from "./assets/pages/Shipping.jsx";
 import Terms from "./assets/pages/terms.jsx";
@@ -21,6 +19,11 @@ import Product from "./assets/pages/product.jsx";
 import NotificationPage from "./assets/pages/NotificationPage.jsx";
 import FavoritePage from "./assets/pages/FavoritePage.jsx";
 import CartPage from "./assets/pages/CartPage.jsx";
+import ContactPage from "./assets/pages/ContactPage.jsx";
+import axios from 'axios'
+import AboutPage from "./assets/pages/AboutPage.jsx";
+
+axios.defaults.baseURL = "http://127.0.0.1:8000/api";
 
 const router = createBrowserRouter([
   {
@@ -32,8 +35,8 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "/about",
-        element: <About />,
+        path: "/about-us",
+        element: <AboutPage />,
       },
       {
         path: "/login",
@@ -41,7 +44,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/contact",
-        element: <Contact />,
+        element: <ContactPage />,
       },
       {
         path: "/refund-policy",
