@@ -19,6 +19,8 @@ import Terms from "./assets/pages/terms.jsx";
 import Purchase from "./assets/pages/Purchase.jsx";
 import Product from "./assets/pages/product.jsx";
 import NotificationPage from "./assets/pages/NotificationPage.jsx";
+import FavoritePage from "./assets/pages/FavoritePage.jsx";
+import CartPage from "./assets/pages/CartPage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -64,6 +66,14 @@ const router = createBrowserRouter([
       {
         path: "/notification",
         element: <NotificationPage />,
+      },
+       {
+        path: "/favorite",
+        element: <FavoritePage />,
+      },
+      {
+        path: "/cart",
+        element: <CartPage />,
       },
     ],
   },

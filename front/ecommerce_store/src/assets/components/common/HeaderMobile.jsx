@@ -7,21 +7,26 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import { Link, useLocation } from "react-router-dom";
 import logo from "/logo.png";
+import burgerBar from "/burgerBar.png";
 import Row from "react-bootstrap/esm/Row";
 import Col from "react-bootstrap/esm/Col";
 import Accordion from "react-bootstrap/Accordion";
-import { useEffect } from "react";
+import { use, useEffect, useState } from "react";
 import gsap from "gsap";
-
+import MegaMenu from "../home/MegaMenu";
 
 export default function HeaderMobile() {
-
   let location = useLocation();
+  const [megaMenuState, setMegaMenuState] = useState(false);
+
+
+  const handleMega = () => {
+    setMegaMenuState(!megaMenuState);
+  };
 
   useEffect(() => {
     gsap.fromTo(".content", { opacity: 0, x: 300 }, { opacity: 1, x: 0 });
   }, [location]);
-
 
   const accordions = [
     { title: " Men's clothing", content: ["Carrot", "Lettuce", "Tomato"] },
@@ -47,7 +52,64 @@ export default function HeaderMobile() {
         >
           <Container fluid>
             <Row className="flex w-100 justify-between">
-              <Col xl={4} md={4} sm={6} xs={6} className="text-left">
+              <Col xl={4} md={4} sm={6} xs={6} className="text-left d-flex">
+                <div className="relative">
+                  <img
+                    alt=""
+                    src={burgerBar}
+                    width="50"
+                    height="50"
+                    className="d-inline align-top border-radius"
+                    onClick={() => handleMega()}
+                  />{" "}
+                  <Accordion
+                    className="accordionMenuDiv overflow-visible bg-tertiary absolute"
+                    style={{
+                      width:'250px',
+                      display:megaMenuState?'inline-block':'block',
+                      position:'absolute',
+                      left:megaMenuState?'0':'-100%',
+                      transition:'all 0.5 ease-in-out',
+                      top:'90%',
+                      height:'100vh',
+                      background:'white',
+                      border:'0 !important'
+                    }}
+                  >
+                    {accordions.map((accordion, index) => (
+                      <Accordion.Item key={index} eventKey={index}>
+                        <Accordion.Header>
+                          {" "}
+                          <img
+                            src="/src/assets/images/image.png"
+                            alt=""
+                            className="accordionMenuIcon m-1"
+                          />{" "}
+                          {accordion.title}
+                        </Accordion.Header>
+                        <ul
+                          style={{
+                            padding: "0",
+                          }}
+                        >
+                          {accordion.content.map((surAccordion, subIndex) => (
+                            <Accordion.Body
+                              key={subIndex}
+                              className="border-y"
+                              style={{
+                                borderBottom: "1px solid #ccc",
+                                padding: "10px 15px",
+                              }}
+                            >
+                              {surAccordion}
+                            </Accordion.Body>
+                          ))}
+                        </ul>
+                      </Accordion.Item>
+                    ))}
+                  </Accordion>
+                </div>
+
                 <Link to="/" className="nav-logo">
                   <img
                     alt=""
@@ -55,7 +117,7 @@ export default function HeaderMobile() {
                     width="50"
                     height="50"
                     className="d-inline align-top border-radius"
-                  />{" "}
+                  />
                 </Link>
               </Col>
 
@@ -83,18 +145,25 @@ export default function HeaderMobile() {
                   <span className="badge text-white bg-danger">2</span>
                 </Link>
 
+                <Link to="/favorite" className="btn">
+                  <span class="material-symbols-outlined">favorite</span>
+                  <span className="badge text-white bg-danger">2</span>
+                </Link>
+
                 <Link to="" className="btn">
                   <span class="material-symbols-outlined">settings_phone</span>
                 </Link>
 
-                <button className="btn cart btn">
+                <Link to="/cart" className="btn">
                   <span class="material-symbols-outlined">shopping_cart</span>
                   <span className="badge text-white bg-danger">2</span>
-                </button>
+                </Link>
 
                 <Link to="/login" className="btn">
                   Login
                 </Link>
+
+               
               </Col>
 
               {/* Mobile menu  */}
@@ -182,5 +251,3 @@ export default function HeaderMobile() {
     </>
   );
 }
-
-

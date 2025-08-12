@@ -85,6 +85,9 @@ export default function FooterDesktop() {
                 </Link>
               </li>
             </ul>
+            <div id="google_translate_element">
+               En
+            </div>
           </Col>
         </Row>
       </Container>
