@@ -37,6 +37,7 @@ dl, ol, ul {
 
 .logo{
     border-radius: 10px;
+    mix-blend-mode: lighten;
 }
 
 .btn{

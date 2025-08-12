@@ -22,6 +22,8 @@ import CartPage from "./assets/pages/CartPage.jsx";
 import ContactPage from "./assets/pages/ContactPage.jsx";
 import axios from 'axios'
 import AboutPage from "./assets/pages/AboutPage.jsx";
+import ProductByCategoryPage from "./assets/pages/ProductByCategoryPage.jsx";
+import ProductBySubCategoryPage from "./assets/pages/ProductBySubCategoryPage.jsx";
 
 axios.defaults.baseURL = "http://127.0.0.1:8000/api";
 
@@ -63,11 +65,20 @@ const router = createBrowserRouter([
         element: <Purchase />,
       },
       {
-        path: "/product/:id",
+        path: "product/:id",
         element: <Product />,
+      }
+      ,
+      {
+        path: "products/:category",
+        element: <ProductByCategoryPage />,
       },
       {
-        path: "/notification",
+        path: "products/:category/:sub_cat",
+        element: <ProductBySubCategoryPage />,
+      },
+      {
+        path: "notification",
         element: <NotificationPage />,
       },
        {

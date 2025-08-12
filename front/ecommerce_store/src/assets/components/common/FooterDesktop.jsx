@@ -48,7 +48,7 @@ export default function FooterDesktop() {
               </li>
 
                <li>
-                <Link className="about-us" to={"/about-us"}>
+                <Link className="footer-link" to={"/about-us"}>
                   About
                 </Link>
               </li>

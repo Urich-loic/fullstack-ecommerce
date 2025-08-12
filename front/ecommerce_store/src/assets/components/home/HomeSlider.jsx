@@ -21,9 +21,10 @@ export default function HomeSliders() {
           <Col lg={12}>
             <div className="slider-container">
               <Slider {...settings}>
+               
                 <div className="slider-img overflow-hidden rounded-xl">
                   <img
-                    src="/src/assets/images/slider1.png"
+                    src="/src/assets/images/slider3.png"
                     alt=""
                     style={{
                       width: "100%",
@@ -36,6 +37,31 @@ export default function HomeSliders() {
                 <div className="slider-img overflow-hidden rounded-xl">
                   <img
                     src="/src/assets/images/slider2.png"
+                    alt=""
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                      objectPosition: "center",
+                    }}
+                  />
+                </div>
+                 <div className="slider-img overflow-hidden rounded-xl">
+                  <img
+                    src="/src/assets/images/slider1.png"
+                    alt=""
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                      objectPosition: "center",
+                    }}
+                  />
+                </div>
+
+                 <div className="slider-img overflow-hidden rounded-xl">
+                  <img
+                    src="/src/assets/images/slider4.png"
                     alt=""
                     style={{
                       width: "100%",

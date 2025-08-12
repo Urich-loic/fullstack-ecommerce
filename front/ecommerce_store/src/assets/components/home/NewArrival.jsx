@@ -1,11 +1,34 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Container from "react-bootstrap/esm/Container";
 import Slider from "react-slick";
 import Row from "react-bootstrap/esm/Row";
 import Col from "react-bootstrap/esm/Col";
 import Card from "react-bootstrap/Card";
+import axios from "axios";
+import Badge from "react-bootstrap/Badge";
+import Button from "react-bootstrap/Button";
+import { Link } from "react-router-dom";
 
 export default function NewArrival() {
+  const [productByRemarks, setproductByRemarks] = useState([]);
+  const getProductsByRemaks = () => {
+    try {
+      axios
+        .get("products/new")
+        .then(function (response) {
+          // console.log(response);
+          setproductByRemarks(response.data);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    } catch (error) {
+      throw Error(error);
+    }
+  };
+
+  useEffect(() => getProductsByRemaks(), []);
+
   let sliderRef = useRef(null);
   const next = () => {
     sliderRef.slickNext();
@@ -83,84 +106,49 @@ export default function NewArrival() {
               }}
               {...settings}
             >
-              <div>
-                <Card className="card">
-                  <div className="image-box">
-                    <img src="/src/assets/images/imag13.webp" alt="" />
-                  </div>
-                  <Card.Body>
-                    <p className="product-name-on-card">
-                      Ai+ Pulse (Purple, 64 GB)
-                    </p>
-                    <p className="product-price-on-card">$ 300</p>
-                  </Card.Body>
-                </Card>
-              </div>
-              <div>
-                <Card className="card">
-                  <div className="image-box">
-                    <img src="/src/assets/images/imag12.webp" alt="" />
-                  </div>
-                  <Card.Body>
-                    <p className="product-name-on-card">
-                      Ai+ Pulse (Purple, 64 GB)
-                    </p>
-                    <p className="product-price-on-card">$ 300</p>
-                  </Card.Body>
-                </Card>
-              </div>
-              <div>
-                <Card className="card">
-                  <div className="image-box">
-                    <img src="/src/assets/images/imag10.webp" alt="" />
-                  </div>
-                  <Card.Body>
-                    <p className="product-name-on-card">
-                      Ai+ Pulse (Purple, 64 GB)
-                    </p>
-                    <p className="product-price-on-card">$ 300</p>
-                  </Card.Body>
-                </Card>
-              </div>
-              <div>
-                <Card className="card">
-                  <div className="image-box">
-                    <img src="/src/assets/images/imag11.webp" alt="" />
-                  </div>
-                  <Card.Body>
-                    <p className="product-name-on-card">
-                      Ai+ Pulse (Purple, 64 GB)
-                    </p>
-                    <p className="product-price-on-card">$ 300</p>
-                  </Card.Body>
-                </Card>
-              </div>
-              <div>
-                <Card className="card">
-                  <div className="image-box">
-                    <img src="/src/assets/images/imag10.webp" alt="" />
-                  </div>
-                  <Card.Body>
-                    <p className="product-name-on-card">
-                      Ai+ Pulse (Purple, 64 GB)
-                    </p>
-                    <p className="product-price-on-card">$ 300</p>
-                  </Card.Body>
-                </Card>
-              </div>
-              <div>
-                <Card className="card">
-                  <div className="image-box">
-                    <img src="/src/assets/images/imag12.webp" alt="" />
-                  </div>
-                  <Card.Body>
-                    <p className="product-name-on-card">
-                      Ai+ Pulse (Purple, 64 GB)
-                    </p>
-                    <p className="product-price-on-card">$ 300</p>
-                  </Card.Body>
-                </Card>
-              </div>
+              {productByRemarks.map((productByRemark, index) => (
+                <Col
+                  key={index}
+                  className="p-1"
+                  xl={3}
+                  lg={3}
+                  sm={4}
+                  xs={6}
+                  md={3}
+                >
+                  <Card className="card h-100">
+                    <div className="image-box">
+                      <img
+                        src={productByRemark.image}
+                        alt={productByRemark.title}
+                      />
+                    </div>
+                    <Card.Body>
+                      <p className="product-name-on-card">
+                        <Link to={`product/${productByRemark.id}`} className="product-name-on-card">
+                          {productByRemark.title}
+                        </Link>
+                      </p>
+                      <p className="product-price-on-card">
+                        <h3>
+                          <Badge bg="danger">
+                            {productByRemark.special_price} Fcfa /{" "}
+                          </Badge>
+                        </h3>
+                        {productByRemark.price ? (
+                          <Badge bg="secondary">
+                            <span style={{ textDecoration: "line-through" }}>
+                              {productByRemark.price} Fcfa
+                            </span>
+                          </Badge>
+                        ) : (
+                          ""
+                        )}
+                      </p>
+                    </Card.Body>
+                  </Card>
+                </Col>
+              ))}
             </Slider>
           </Col>
         </Row>

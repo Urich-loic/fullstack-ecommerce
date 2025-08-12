@@ -1,10 +1,37 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Col from "react-bootstrap/esm/Col";
 import Container from "react-bootstrap/esm/Container";
 import Row from "react-bootstrap/esm/Row";
 import Card from "react-bootstrap/Card";
+import axios from "axios";
+import { Link } from "react-router-dom";
 
 export default function Categories() {
+  const [categories, setCategories] = useState([]);
+
+  const getCategories = () => {
+    try {
+      axios
+        .get("categories")
+        .then(function (response) {
+          // console.log(response);
+          setCategories(response.data);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    } catch (error) {
+      throw Error(error);
+    }
+  };
+
+  const convertToString = (catName)=>{
+    const newCatName = catName.split(" ").join("-");
+    return newCatName.toLowerCase();
+  }
+
+  useEffect(() => getCategories(), []);
+
   return (
     <div>
       <Container className="text-center" fluid={true}>
@@ -13,99 +40,24 @@ export default function Categories() {
           <p>Some of our categories you may also like</p>
         </div>
         <Row>
-          <Col key={1} xl={6} lg={6} md={6} sm={12} xs={12}>
+          <Col key={1} xl={12} lg={12} md={12} sm={12} xs={12}>
             <Row className="p-0 gap-0">
-              <Col className="p-0" xl={3} lg={3} md={3} sm={2} xs={6}>
-                <Card className="h-100 w-100 text-center">
-                  <Card.Body className="">
-                    <div className="image-box mb-2">
-                      <img src="/src/assets/images/imag6.webp" alt="" />
-                    </div>
-                    <h3 className="category-name"> Mobile</h3>
-                  </Card.Body>
-                </Card>
-              </Col>
-
-              <Col className="p-0" xl={3} lg={3} md={3} sm={2} xs={6}>
-                <Card className="h-100 w-100 text-center">
-                  <Card.Body>
-                    <div className="image-box mb-2">
-                      <img src="/src/assets/images/imag6.webp" alt="" />
-                    </div>
-                    <h3 className="category-name"> Electronic</h3>
-                  </Card.Body>
-                </Card>
-              </Col>
-
-              <Col className="p-0" xl={3} lg={3} md={3} sm={2} xs={6}>
-                <Card className="h-100 w-100 text-center">
-                  <Card.Body>
-                    <div className="image-box mb-2">
-                      <img src="/src/assets/images/imag6.webp" alt="" />
-                    </div>
-                    <h3 className="category-name"> Gadget</h3>
-                  </Card.Body>
-                </Card>
-              </Col>
-
-              <Col className="p-0" xl={3} lg={3} md={3} sm={2} xs={6}>
-                <Card className="h-100 w-100 text-center">
-                  <Card.Body>
-                    <div className="image-box mb-2">
-                      <img src="/src/assets/images/imag6.webp" alt="" />
-                    </div>
-                    <h3 className="category-name"> Groceries</h3>
-                  </Card.Body>
-                </Card>
-              </Col>
-            </Row>
-          </Col>
-
-          <Col xl={6} lg={6} md={6} sm={12} xs={12}>
-            <Row>
-              <Col className="p-0" xl={3} lg={3} md={3} sm={2} xs={6}>
-                <Card className="h-100 w-100 text-center">
-                  <Card.Body className="">
-                    <div className="image-box mb-2">
-                      <img src="/src/assets/images/imag6.webp" alt="" />
-                    </div>
-                    <h3 className="category-name"> Travel</h3>
-                  </Card.Body>
-                </Card>
-              </Col>
-
-              <Col className="p-0" xl={3} lg={3} md={3} sm={2} xs={6}>
-                <Card className="h-100 w-100 text-center">
-                  <Card.Body>
-                    <div className="image-box mb-2">
-                      <img src="/src/assets/images/imag6.webp" alt="" />
-                    </div>
-                    <h3 className="category-name"> Beauty</h3>
-                  </Card.Body>
-                </Card>
-              </Col>
-
-              <Col className="p-0" xl={3} lg={3} md={3} sm={2} xs={6}>
-                <Card className="h-100 w-100 text-center">
-                  <Card.Body>
-                    <div className="image-box mb-2">
-                      <img src="/src/assets/images/imag6.webp" alt="" />
-                    </div>
-                    <h3 className="category-name"> Offers Zone</h3>
-                  </Card.Body>
-                </Card>
-              </Col>
-
-              <Col className="p-0" xl={3} lg={3} md={3} sm={2} xs={6}>
-                <Card className="h-100 w-100 text-center">
-                  <Card.Body>
-                    <div className="image-box mb-2">
-                      <img src="/src/assets/images/imag6.webp" alt="" />
-                    </div>
-                    <h3 className="category-name"> Mobile</h3>
-                  </Card.Body>
-                </Card>
-              </Col>
+              {categories.map((category) => (
+               
+                  <Col className="p-0" xl={2} lg={2} md={3} sm={4} xs={6}>
+                     <Link to={`/products/${convertToString(category.cat_name)}`}>
+                    <Card className="h-100 w-100 text-center">
+                      <Card.Body className="">
+                        <div className="image-box mb-2">
+                          <img src={category.cat_image} alt="" />
+                        </div>
+                        <h3 className="category-name"> {category.cat_name}</h3>
+                      </Card.Body>
+                    </Card>
+                     </Link>
+                  </Col>
+               
+              ))}
             </Row>
           </Col>
         </Row>

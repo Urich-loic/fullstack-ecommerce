@@ -12,7 +12,7 @@ export default function Favorite() {
 
         <Row className="d-flex justify-center items-center">
           <Col className="p-1" xl={3} lg={3} sm={4} xs={6} md={3}>
-            <Card className="card">
+            <Card className="card h-100">
               <div className="image-box">
                 <img src="/src/assets/images/imag6.webp" alt="" />
               </div>
@@ -24,7 +24,7 @@ export default function Favorite() {
               </Card.Body>
               <Button className="btn btn-sm">
                 {" "}
-                <span class="material-symbols-outlined">
+                <span className="material-symbols-outlined">
                   delete
                 </span> Remove{" "}
               </Button>
@@ -32,7 +32,7 @@ export default function Favorite() {
           </Col>
 
           <Col className="p-1" xl={3} lg={3} sm={4} xs={6} md={3}>
-            <Card className="card">
+            <Card className="card h-100">
               <div className="image-box">
                 <img src="/src/assets/images/imag6.webp" alt="" />
               </div>
@@ -44,7 +44,7 @@ export default function Favorite() {
               </Card.Body>
               <Button className="btn btn-sm">
                 {" "}
-                <span class="material-symbols-outlined">
+                <span className="material-symbols-outlined">
                   delete
                 </span> Remove{" "}
               </Button>
@@ -52,7 +52,7 @@ export default function Favorite() {
           </Col>
 
          <Col className="p-1" xl={3} lg={3} sm={4} xs={6} md={3}>
-            <Card className="card">
+            <Card className="card h-100">
               <div className="image-box">
                 <img src="/src/assets/images/imag6.webp" alt="" />
               </div>
@@ -64,7 +64,7 @@ export default function Favorite() {
               </Card.Body>
               <Button className="btn btn-sm">
                 {" "}
-                <span class="material-symbols-outlined">
+                <span className="material-symbols-outlined">
                   delete
                 </span> Remove{" "}
               </Button>
@@ -72,7 +72,7 @@ export default function Favorite() {
           </Col>
 
           <Col className="p-1" xl={3} lg={3} sm={4} xs={6} md={3}>
-            <Card className="card">
+            <Card className="card h-100">
               <div className="image-box">
                 <img src="/src/assets/images/imag6.webp" alt="" />
               </div>
@@ -84,7 +84,7 @@ export default function Favorite() {
               </Card.Body>
               <Button className="btn btn-sm">
                 {" "}
-                <span class="material-symbols-outlined">
+                <span className="material-symbols-outlined">
                   delete
                 </span> Remove{" "}
               </Button>
