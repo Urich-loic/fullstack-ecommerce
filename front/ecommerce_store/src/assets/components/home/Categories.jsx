@@ -5,6 +5,7 @@ import Row from "react-bootstrap/esm/Row";
 import Card from "react-bootstrap/Card";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import ProductIsLoading from "../Placeholder/ProductIsLoading";
 
 export default function Categories() {
   const [categories, setCategories] = useState([]);
@@ -15,7 +16,14 @@ export default function Categories() {
         .get("categories")
         .then(function (response) {
           // console.log(response);
-          setCategories(response.data);
+            setTimeout(() => {
+            setCategories(response.data);
+          }, 4000);
+
+          setTimeout(() => {
+            setIsLoading("d-none");
+            setMainComponent("");
+          }, 4000);
         })
         .catch(function (error) {
           console.log(error);
@@ -30,6 +38,9 @@ export default function Categories() {
     return newCatName.toLowerCase();
   }
 
+  const [mainComponent, setMainComponent] = useState("d-none");
+      const [isLoading, setIsLoading] = useState("");
+
   useEffect(() => getCategories(), []);
 
   return (
@@ -39,7 +50,49 @@ export default function Categories() {
           <h2>Categories</h2>
           <p>Some of our categories you may also like</p>
         </div>
-        <Row>
+        <Row className={`h-100 ${isLoading}`}>
+          <Col xl={2} lg={3} sm={4} xs={6} md={3}>
+            <ProductIsLoading />
+          </Col>
+
+          <Col xl={2} lg={2} sm={4} xs={6} md={3}>
+            <ProductIsLoading />
+          </Col>
+
+          <Col xl={2} lg={2} sm={4} xs={6} md={3}>
+            <ProductIsLoading />
+          </Col>
+
+          <Col xl={2} lg={2} sm={4} xs={6} md={3}>
+            <ProductIsLoading />
+          </Col>
+          <Col xl={2} lg={2} sm={4} xs={6} md={3}>
+            <ProductIsLoading />
+          </Col>
+          <Col xl={2} lg={2} sm={4} xs={6} md={3}>
+            <ProductIsLoading />
+          </Col>
+          <Col xl={2} lg={2} sm={4} xs={6} md={3}>
+            <ProductIsLoading />
+          </Col>
+          <Col xl={2} lg={2} sm={4} xs={6} md={3}>
+            <ProductIsLoading />
+          </Col>
+          <Col xl={2} lg={2} sm={4} xs={6} md={3}>
+            <ProductIsLoading />
+          </Col>
+          <Col xl={2} lg={2} sm={4} xs={6} md={3}>
+            <ProductIsLoading />
+          </Col>
+          <Col xl={2} lg={2} sm={4} xs={6} md={3}>
+            <ProductIsLoading />
+          </Col>
+          <Col xl={2} lg={2} sm={4} xs={6} md={3}>
+            <ProductIsLoading />
+          </Col>
+
+        </Row>
+        <Row className={mainComponent}>
           <Col key={1} xl={12} lg={12} md={12} sm={12} xs={12}>
             <Row className="p-0 gap-0">
               {categories.map((category) => (

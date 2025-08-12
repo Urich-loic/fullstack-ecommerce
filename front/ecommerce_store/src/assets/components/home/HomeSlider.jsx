@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Col from "react-bootstrap/esm/Col";
 import Container from "react-bootstrap/esm/Container";
 import Row from "react-bootstrap/esm/Row";
 import Slider from "react-slick";
+import axios from "axios";
 import "../../css/HomeSlider.css";
 
 export default function HomeSliders() {
@@ -14,6 +15,25 @@ export default function HomeSliders() {
     slidesToScroll: 1,
   };
 
+  const [slideImages, setSlideImages] = useState([]);
+  const getSlideImages = () => {
+    try {
+      axios
+        .get("get-slider")
+        .then(function (response) {
+          // console.log(response);
+          setSlideImages(response.data);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    } catch (error) {
+      throw Error(error);
+    }
+  };
+
+  useEffect(() => getSlideImages(), []);
+
   return (
     <div>
       <Container className="">
@@ -21,20 +41,22 @@ export default function HomeSliders() {
           <Col lg={12}>
             <div className="slider-container">
               <Slider {...settings}>
-               
-                <div className="slider-img overflow-hidden rounded-xl">
-                  <img
-                    src="/src/assets/images/slider3.png"
-                    alt=""
-                    style={{
-                      width: "100%",
-                      height: "100%",
-                      objectFit: "cover",
-                      objectPosition: "center",
-                    }}
-                  />
-                </div>
-                <div className="slider-img overflow-hidden rounded-xl">
+                {slideImages.map((slideImage) => (
+                  <div className="slider-img overflow-hidden rounded-xl">
+                    <img
+                      src={slideImage.image}
+                      alt=""
+                      style={{
+                        width: "100%",
+                        height: "100%",
+                        objectFit: "cover",
+                        objectPosition: "center",
+                      }}
+                    />
+                  </div>
+                ))}
+
+                {/* <div className="slider-img overflow-hidden rounded-xl">
                   <img
                     src="/src/assets/images/slider2.png"
                     alt=""
@@ -46,7 +68,7 @@ export default function HomeSliders() {
                     }}
                   />
                 </div>
-                 <div className="slider-img overflow-hidden rounded-xl">
+                <div className="slider-img overflow-hidden rounded-xl">
                   <img
                     src="/src/assets/images/slider1.png"
                     alt=""
@@ -59,7 +81,7 @@ export default function HomeSliders() {
                   />
                 </div>
 
-                 <div className="slider-img overflow-hidden rounded-xl">
+                <div className="slider-img overflow-hidden rounded-xl">
                   <img
                     src="/src/assets/images/slider4.png"
                     alt=""
@@ -83,7 +105,7 @@ export default function HomeSliders() {
                       objectPosition: "center",
                     }}
                   />
-                </div>
+                </div> */}
               </Slider>
             </div>
           </Col>

@@ -14,7 +14,14 @@ export default function ProductBySubCategoryPage() {
         .get(`/products-by-sub-cat/${category}/${sub_cat}`)
         .then(function (response) {
           // console.log(response);
-          setProducts(response.data);
+          setTimeout(() => {
+            setProducts(response.data);
+          }, 4000);
+
+          setTimeout(() => {
+            setIsLoading("d-none");
+            setMainComponent("");
+          }, 4000);
         })
         .catch(function (error) {
           console.log(error);
@@ -24,11 +31,14 @@ export default function ProductBySubCategoryPage() {
     }
   };
 
+  const [mainComponent, setMainComponent] = useState("d-none");
+    const [isLoading, setIsLoading] = useState("");
+
   useEffect(() => getCategories(), []);
 
   return (
     <div>
-      <ProductBySubCategory products={products} />
+      <ProductBySubCategory products={products}mainComponent={mainComponent} isLoading={isLoading} />
     </div>
   );
 }

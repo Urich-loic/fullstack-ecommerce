@@ -8,6 +8,7 @@ import axios from "axios";
 import Badge from "react-bootstrap/Badge";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
+import ProductIsLoading from "../Placeholder/ProductIsLoading";
 
 export default function NewArrival() {
   const [productByRemarks, setproductByRemarks] = useState([]);
@@ -17,7 +18,14 @@ export default function NewArrival() {
         .get("products/new")
         .then(function (response) {
           // console.log(response);
-          setproductByRemarks(response.data);
+           setTimeout(() => {
+            setproductByRemarks(response.data);
+          }, 4000);
+
+          setTimeout(() => {
+            setIsLoading("d-none");
+            setMainComponent("");
+          }, 4000);
         })
         .catch(function (error) {
           console.log(error);
@@ -26,6 +34,9 @@ export default function NewArrival() {
       throw Error(error);
     }
   };
+
+    const [mainComponent, setMainComponent] = useState("d-none");
+    const [isLoading, setIsLoading] = useState("");
 
   useEffect(() => getProductsByRemaks(), []);
 
@@ -98,7 +109,26 @@ export default function NewArrival() {
             <span className="material-symbols-outlined">chevron_right</span>
           </a>
         </div>
-        <Row>
+        <Row className={`p-1 ${isLoading}`}>
+          <Col xl={3} lg={3} sm={4} xs={6} md={3}>
+            <ProductIsLoading />
+          </Col>
+
+          <Col xl={3} lg={3} sm={4} xs={6} md={3}>
+            <ProductIsLoading />
+          </Col>
+
+          <Col xl={3} lg={3} sm={4} xs={6} md={3}>
+            <ProductIsLoading />
+          </Col>
+
+          <Col xl={3} lg={3} sm={4} xs={6} md={3}>
+            <ProductIsLoading />
+          </Col>
+
+    
+        </Row>
+        <Row className={mainComponent}>
           <Col xl={12}>
             <Slider
               ref={(slider) => {
