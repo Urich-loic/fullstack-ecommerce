@@ -65,33 +65,38 @@ export default function FeatureProduct() {
       <Row className={mainComponent}>
         {productByRemarks.map((productByRemark, index) => (
           <Col key={index} className="p-1" xl={3} lg={3} sm={4} xs={6} md={3}>
-            <Card className="card h-100">
-              <div className="image-box">
-                <img src={productByRemark.image} alt={productByRemark.title} />
-              </div>
-              <Card.Body>
-                <p className="product-name-on-card">
-                  <Link
-                    to={`product/${productByRemark.id}`}
-                    className="product-name-on-card"
-                  >
-                    {productByRemark.title}
-                  </Link>
-                </p>
-                <p className="product-price-on-card">
-                  <h3>
-                    <Badge bg="danger">
-                      {productByRemark.special_price} Fcfa /{" "}
+            <Link to={`/product/${productByRemark.id}`} className="product-name-on-card">
+              <Card className="card h-100">
+                <div className="image-box">
+                  <img
+                    src={productByRemark.image}
+                    alt={productByRemark.title}
+                  />
+                </div>
+                <Card.Body>
+                  <p className="product-name-on-card">
+                    <Link
+                      to={`product/${productByRemark.id}`}
+                      className="product-name-on-card"
+                    >
+                      {productByRemark.title}
+                    </Link>
+                  </p>
+                  <p className="product-price-on-card">
+                    <h3>
+                      <Badge bg="danger">
+                        {productByRemark.special_price} Fcfa {" "}
+                      </Badge>
+                    </h3>
+                    <Badge bg="secondary">
+                      <span style={{ textDecoration: "line-through" }}>
+                        {productByRemark.price} Fcfa
+                      </span>
                     </Badge>
-                  </h3>
-                  <Badge bg="secondary">
-                    <span style={{ textDecoration: "line-through" }}>
-                      {productByRemark.price} Fcfa
-                    </span>
-                  </Badge>
-                </p>
-              </Card.Body>
-            </Card>
+                  </p>
+                </Card.Body>
+              </Card>
+            </Link>
           </Col>
         ))}
       </Row>

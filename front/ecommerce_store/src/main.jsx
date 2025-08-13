@@ -70,11 +70,11 @@ const router = createBrowserRouter([
       }
       ,
       {
-        path: "products/:category",
+        path: "/:category",
         element: <ProductByCategoryPage />,
       },
       {
-        path: "products/:category/:sub_cat",
+        path: "/:category/:sub_cat",
         element: <ProductBySubCategoryPage />,
       },
       {

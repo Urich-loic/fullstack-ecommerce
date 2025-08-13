@@ -61,12 +61,11 @@ export default function Collection() {
           <Col xl={3} lg={3} sm={4} xs={6} md={3}>
             <ProductIsLoading />
           </Col>
-
-    
         </Row>
         <Row className={`p-1 ${mainComponent}`}>
-          {products.map((product) => (
+          {products.map((product, index) => (
             <Col
+              key={index}
               className={`p-1`}
               xl={3}
               lg={3}
@@ -74,22 +73,22 @@ export default function Collection() {
               xs={6}
               md={3}
             >
-              <Card className="card h-100">
-                <div className="image-box">
-                  <img src={product.image} alt="" />
-                </div>
-                <Card.Body>
-                  <p className="product-name-on-card">
-                    <Link
-                      to={`product/${product.id}`}
-                      className="product-name-on-card"
-                    >
-                      {product.title}
-                    </Link>
-                  </p>
-                  <p className="product-price-on-card">{product.price} Fcfa</p>
-                </Card.Body>
-              </Card>
+              <Link
+                to={`/product/${product.id}`}
+                className="product-name-on-card"
+              >
+                <Card className="card h-100">
+                  <div className="image-box">
+                    <img src={product.image} alt="" />
+                  </div>
+                  <Card.Body>
+                    <p className="product-name-on-card">{product.title}</p>
+                    <p className="product-price-on-card">
+                      {product.price} Fcfa
+                    </p>
+                  </Card.Body>
+                </Card>
+              </Link>
             </Col>
           ))}
         </Row>

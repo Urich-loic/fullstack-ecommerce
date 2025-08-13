@@ -26,7 +26,7 @@ export default function MegaMenu({ categories }) {
       {categories.map((category, index) => (
         <Accordion.Item key={index} eventKey={index}>
           <Link
-            to={`/products/${convertToString(category.cat_name)}`}
+            to={`/${convertToString(category.cat_name)}`}
             className="product-name-on-card"
           >
             <Accordion.Header>
@@ -46,7 +46,7 @@ export default function MegaMenu({ categories }) {
             >
               {category.sub_cat_name.map((subCategories, subIndex) => (
                 <Link
-                  to={`/products/${convertToString(category.cat_name)}/${subCategories.sub_cat_name}`}
+                  to={`/${convertToString(category.cat_name)}/${subCategories.sub_cat_name}`}
                   className="product-name-on-card"
                 >
                   <Accordion.Body

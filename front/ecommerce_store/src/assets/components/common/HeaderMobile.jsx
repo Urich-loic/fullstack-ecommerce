@@ -107,7 +107,7 @@ export default function HeaderMobile() {
                     {categories.map((category, index) => (
                       <Accordion.Item key={index} eventKey={index}>
                         <Link
-                          to={`/products/${convertToString(category.cat_name)}`}
+                          to={`/${convertToString(category.cat_name)}`}
                           className="product-name-on-card"
                         >
                           <Accordion.Header>
@@ -137,7 +137,7 @@ export default function HeaderMobile() {
                               >
                                 <span>
                                   <Link
-                                    to={`/products/${convertToString(
+                                    to={`/${convertToString(
                                       category.cat_name
                                     )}/${convertToString(
                                       subCategories.sub_cat_name
@@ -249,7 +249,7 @@ export default function HeaderMobile() {
                         {categories.map((category, index) => (
                           <Accordion.Item key={index} eventKey={index}>
                             <Link
-                              to={`/products/${convertToString(
+                              to={`/${convertToString(
                                 category.cat_name
                               )}`}
                               className="product-name-on-card"
@@ -280,7 +280,7 @@ export default function HeaderMobile() {
                                     }}
                                   >
                                     <Link
-                                      to={`/products/${convertToString(
+                                      to={`/${convertToString(
                                         category.cat_name
                                       )}/${convertToString(
                                         subCategories.sub_cat_name

@@ -18,7 +18,7 @@ export default function NewArrival() {
         .get("products/new")
         .then(function (response) {
           // console.log(response);
-           setTimeout(() => {
+          setTimeout(() => {
             setproductByRemarks(response.data);
           }, 4000);
 
@@ -35,8 +35,8 @@ export default function NewArrival() {
     }
   };
 
-    const [mainComponent, setMainComponent] = useState("d-none");
-    const [isLoading, setIsLoading] = useState("");
+  const [mainComponent, setMainComponent] = useState("d-none");
+  const [isLoading, setIsLoading] = useState("");
 
   useEffect(() => getProductsByRemaks(), []);
 
@@ -125,8 +125,6 @@ export default function NewArrival() {
           <Col xl={3} lg={3} sm={4} xs={6} md={3}>
             <ProductIsLoading />
           </Col>
-
-    
         </Row>
         <Row className={mainComponent}>
           <Col xl={12}>
@@ -146,37 +144,45 @@ export default function NewArrival() {
                   xs={6}
                   md={3}
                 >
-                  <Card className="card h-100">
-                    <div className="image-box">
-                      <img
-                        src={productByRemark.image}
-                        alt={productByRemark.title}
-                      />
-                    </div>
-                    <Card.Body>
-                      <p className="product-name-on-card">
-                        <Link to={`product/${productByRemark.id}`} className="product-name-on-card">
-                          {productByRemark.title}
-                        </Link>
-                      </p>
-                      <p className="product-price-on-card">
-                        <h3>
-                          <Badge bg="danger">
-                            {productByRemark.special_price} Fcfa /{" "}
-                          </Badge>
-                        </h3>
-                        {productByRemark.price ? (
-                          <Badge bg="secondary">
-                            <span style={{ textDecoration: "line-through" }}>
-                              {productByRemark.price} Fcfa
-                            </span>
-                          </Badge>
-                        ) : (
-                          ""
-                        )}
-                      </p>
-                    </Card.Body>
-                  </Card>
+                  <Link
+                    to={`/product/${productByRemark.id}`}
+                    className="product-name-on-card"
+                  >
+                    <Card className="card h-100">
+                      <div className="image-box">
+                        <img
+                          src={productByRemark.image}
+                          alt={productByRemark.title}
+                        />
+                      </div>
+                      <Card.Body>
+                        <p className="product-name-on-card">
+                          <Link
+                            to={`product/${productByRemark.id}`}
+                            className="product-name-on-card"
+                          >
+                            {productByRemark.title}
+                          </Link>
+                        </p>
+                        <p className="product-price-on-card">
+                          <h3>
+                            <Badge bg="danger">
+                              {productByRemark.special_price} Fcfa {" "}
+                            </Badge>
+                          </h3>
+                          {productByRemark.price ? (
+                            <Badge bg="secondary">
+                              <span style={{ textDecoration: "line-through" }}>
+                                {productByRemark.price} Fcfa
+                              </span>
+                            </Badge>
+                          ) : (
+                            ""
+                          )}
+                        </p>
+                      </Card.Body>
+                    </Card>
+                  </Link>
                 </Col>
               ))}
             </Slider>

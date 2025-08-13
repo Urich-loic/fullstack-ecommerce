@@ -98,7 +98,7 @@ export default function Categories() {
               {categories.map((category) => (
                
                   <Col className="p-0" xl={2} lg={2} md={3} sm={4} xs={6}>
-                     <Link to={`/products/${convertToString(category.cat_name)}`}>
+                     <Link to={`/${convertToString(category.cat_name)}`}>
                     <Card className="h-100 w-100 text-center">
                       <Card.Body className="">
                         <div className="image-box mb-2">

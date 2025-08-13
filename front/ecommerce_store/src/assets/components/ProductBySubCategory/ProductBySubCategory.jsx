@@ -28,7 +28,7 @@ export default function ProductByCategory({ products, isLoading, mainComponent }
                 <Card.Body>
                   <p className="product-name-on-card">
                     <Link
-                      to={`product/${product.id}`}
+                      to={`/product/${product.id}`}
                       className="product-name-on-card"
                     >
                       {product.title}
