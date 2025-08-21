@@ -5,17 +5,34 @@ import Row from "react-bootstrap/esm/Row";
 import Card from "react-bootstrap/Card";
 import { Link, useParams } from "react-router-dom";
 import ProductIsLoading from "../Placeholder/ProductIsLoading";
-
-export default function ProductByCategory({ products, isLoading, mainComponent }) {
+import Breadcrumb from "react-bootstrap/Breadcrumb";
+export default function ProductByCategory({
+  products,
+  isLoading,
+  mainComponent,
+}) {
   const { category, sub_cat } = useParams();
-
-
 
   return (
     <div className="content">
       <Container>
+        <Col lg={12} md={12} sm={12} className="d-flex mb-5">
+          <Breadcrumb>
+            <Breadcrumb.Item>
+              <Link to={"/"}>Home</Link>
+            </Breadcrumb.Item>
+            <Breadcrumb.Item style={{ textTransform: "capitalize" }}>
+              <Link to={`/${category}`}> {category}</Link>
+            </Breadcrumb.Item>
+            <Breadcrumb.Item style={{ textTransform: "capitalize" }}>
+              {sub_cat}
+            </Breadcrumb.Item>
+          </Breadcrumb>
+        </Col>
         <div className="section-title">
-          <h2 style={{ textTransform: "capitalize" }}>{category} / {sub_cat} Collection</h2>
+          <h2 style={{ textTransform: "capitalize" }}>
+            {category} / {sub_cat} Collection
+          </h2>
           <p>Some of our products collection you may also like</p>
         </div>
         <Row className={mainComponent}>

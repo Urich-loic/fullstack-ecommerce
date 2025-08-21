@@ -9,7 +9,7 @@ import "./assets/css/animate.min.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Home from "./assets/pages/Home.jsx";
-import UserLogin from "./assets/pages/UserLogin.jsx";
+import UserLogin from "./assets/pages/UserLoginPage.jsx";
 import Contact from "./assets/pages/ContactPage.jsx";
 import Refund from "./assets/pages/Refund.jsx";
 import Shipping from "./assets/pages/Shipping.jsx";
@@ -20,10 +20,14 @@ import NotificationPage from "./assets/pages/NotificationPage.jsx";
 import FavoritePage from "./assets/pages/FavoritePage.jsx";
 import CartPage from "./assets/pages/CartPage.jsx";
 import ContactPage from "./assets/pages/ContactPage.jsx";
-import axios from 'axios'
+import axios from "axios";
 import AboutPage from "./assets/pages/AboutPage.jsx";
 import ProductByCategoryPage from "./assets/pages/ProductByCategoryPage.jsx";
 import ProductBySubCategoryPage from "./assets/pages/ProductBySubCategoryPage.jsx";
+import SearchResultPage from "./assets/pages/SearchResultPage.jsx";
+import RegisterPage from "./assets/pages/RegisterPage.jsx";
+import UserLoginPage from "./assets/pages/UserLoginPage.jsx";
+import ForgotPasswordPage from "./assets/pages/ForgotPasswordPage.jsx";
 
 axios.defaults.baseURL = "http://127.0.0.1:8000/api";
 
@@ -42,7 +46,15 @@ const router = createBrowserRouter([
       },
       {
         path: "/login",
-        element: <UserLogin />,
+        element: <UserLoginPage />,
+      },
+      {
+        path: "/register",
+        element: <RegisterPage />,
+      },
+      {
+        path: "/forgot-password",
+        element: <ForgotPasswordPage />,
       },
       {
         path: "/contact",
@@ -67,8 +79,7 @@ const router = createBrowserRouter([
       {
         path: "product/:id",
         element: <Product />,
-      }
-      ,
+      },
       {
         path: "/:category",
         element: <ProductByCategoryPage />,
@@ -78,10 +89,14 @@ const router = createBrowserRouter([
         element: <ProductBySubCategoryPage />,
       },
       {
+        path: "/search-result/:searchedItem",
+        element: <SearchResultPage />,
+      },
+      {
         path: "notification",
         element: <NotificationPage />,
       },
-       {
+      {
         path: "/favorite",
         element: <FavoritePage />,
       },

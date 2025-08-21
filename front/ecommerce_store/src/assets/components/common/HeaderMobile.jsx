@@ -5,7 +5,7 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import Offcanvas from "react-bootstrap/Offcanvas";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import logo from "/logo.png";
 import burgerBar from "/burgerBar.png";
 import Row from "react-bootstrap/esm/Row";
@@ -16,9 +16,12 @@ import gsap from "gsap";
 import axios from "axios";
 
 export default function HeaderMobile() {
+  const [searchedItem, setSearchedItem] = useState();
+  const naivate = useNavigate();
+
   let location = useLocation();
   const [megaMenuState, setMegaMenuState] = useState(false);
-
+  const [notifications, setNotifications] = useState(null);
   const handleMega = () => {
     setMegaMenuState(!megaMenuState);
   };
@@ -45,8 +48,30 @@ export default function HeaderMobile() {
     }
   };
 
+  const getNotification = () => {
+    try {
+      axios
+        .get("/notification")
+        .then(function (response) {
+          setNotifications(response.data);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    } catch (error) {
+      throw Error(error);
+    }
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    naivate(`/search-result/${searchedItem}`);
+   
+  };
+
   useEffect(() => {
     getCategories();
+    getNotification();
     gsap.fromTo(".content", { opacity: 0, x: 300 }, { opacity: 1, x: 0 });
   }, [location]);
 
@@ -76,7 +101,7 @@ export default function HeaderMobile() {
             <Row className="flex w-100 justify-between">
               <Col
                 xl={4}
-                md={4}
+                md={3}
                 sm={6}
                 xs={6}
                 className="text-left d-flex gap-2"
@@ -167,30 +192,40 @@ export default function HeaderMobile() {
                 </Link>
               </Col>
 
-              <Col xl={4} md={4} sm={6} className="searchBarDesktop">
+              <Col xl={4} md={3} sm={6} className="searchBarDesktop">
                 <div className="d-flex searchContainer gap-3">
-                  <input
-                    type="text"
-                    className="form-control"
-                    placeholder="Search for a product"
-                  />
-                  <button
-                    type="button"
-                    className="btn site-btn rounded-b-full border overflow-hidden"
+                  <form
+                    onSubmit={(e) => {
+                      handleSubmit(e);
+                    }}
+                    className="d-flex gap-1"
                   >
-                    <span className="material-symbols-outlined search-btn">
-                      search
-                    </span>
-                  </button>
+                    <input
+                      onChange={(e) => setSearchedItem(e.target.value)}
+                      name="searchedProduct"
+                      className="form-control"
+                      placeholder="Search for a product"
+                    />
+                    <button
+                      type="submit"
+                      className="btn site-btn rounded-b-full border overflow-hidden"
+                    >
+                      <span className="material-symbols-outlined search-btn">
+                        search
+                      </span>
+                    </button>
+                  </form>
                 </div>
               </Col>
 
-              <Col xl={4} md={4} sm={6} className="text-right header-icons">
+              <Col xl={4} md={6} sm={6} className="text-right header-icons">
                 <Link to="/notification" className="btn">
                   <span className="material-symbols-outlined">
                     notifications
                   </span>
-                  <span className="badge text-white bg-danger">2</span>
+                  <span className="badge text-white bg-danger">
+                    {notifications && Number(notifications.length)}
+                  </span>
                 </Link>
 
                 <Link to="/favorite" className="btn">
@@ -213,6 +248,9 @@ export default function HeaderMobile() {
 
                 <Link to="/login" className="btn">
                   Login
+                </Link>
+                <Link to="/register" className="btn">
+                  Register
                 </Link>
               </Col>
 
@@ -249,9 +287,7 @@ export default function HeaderMobile() {
                         {categories.map((category, index) => (
                           <Accordion.Item key={index} eventKey={index}>
                             <Link
-                              to={`/${convertToString(
-                                category.cat_name
-                              )}`}
+                              to={`/${convertToString(category.cat_name)}`}
                               className="product-name-on-card"
                             >
                               <Accordion.Header>

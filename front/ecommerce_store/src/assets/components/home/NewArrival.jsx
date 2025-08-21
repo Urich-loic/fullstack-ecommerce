@@ -156,15 +156,15 @@ export default function NewArrival() {
                         />
                       </div>
                       <Card.Body>
-                        <p className="product-name-on-card">
+                        <div className="product-name-on-card">
                           <Link
                             to={`product/${productByRemark.id}`}
                             className="product-name-on-card"
                           >
                             {productByRemark.title}
                           </Link>
-                        </p>
-                        <p className="product-price-on-card">
+                        </div>
+                        <div className="product-price-on-card">
                           <h3>
                             <Badge bg="danger">
                               {productByRemark.special_price} Fcfa {" "}
@@ -179,7 +179,7 @@ export default function NewArrival() {
                           ) : (
                             ""
                           )}
-                        </p>
+                        </div>
                       </Card.Body>
                     </Card>
                   </Link>

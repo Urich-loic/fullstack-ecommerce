@@ -7,6 +7,8 @@ import axios from "axios";
 import FormModal from "../formModal/formModal";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Breadcrumb from "react-bootstrap/Breadcrumb";
+import {Link} from 'react-router-dom'
 
 export default function Contact() {
   const [formDtata, setFormData] = useState({
@@ -60,6 +62,16 @@ export default function Contact() {
     <div>
       <Container className="my-5 h-screen">
         <Row className="login-row space-x-1">
+          <Col lg={12} md={12} sm={12} className="d-flex mb-5">
+            <Breadcrumb>
+              <Breadcrumb.Item>
+                <Link to={'/'}>Home</Link>
+              </Breadcrumb.Item>
+              <Breadcrumb.Item >
+                Contact
+              </Breadcrumb.Item>
+            </Breadcrumb>
+          </Col>
           <Col lg={6} md={6} sm={12} className="d-flex login-section">
             <form
               id="contactForm"
