@@ -28,6 +28,8 @@ import SearchResultPage from "./assets/pages/SearchResultPage.jsx";
 import RegisterPage from "./assets/pages/RegisterPage.jsx";
 import UserLoginPage from "./assets/pages/UserLoginPage.jsx";
 import ForgotPasswordPage from "./assets/pages/ForgotPasswordPage.jsx";
+import ResetPasswordPage from "./assets/pages/ResetPasswordPage.jsx";
+import ProfilePage from "./assets/pages/ProfilePage.jsx";
 
 axios.defaults.baseURL = "http://127.0.0.1:8000/api";
 
@@ -55,6 +57,14 @@ const router = createBrowserRouter([
       {
         path: "/forgot-password",
         element: <ForgotPasswordPage />,
+      },
+      {
+        path: "/reset/:id",
+        element: <ResetPasswordPage />,
+      },
+      {
+        path: "/profile",
+        element: <ProfilePage />,
       },
       {
         path: "/contact",

@@ -246,7 +246,10 @@ export default function HeaderMobile() {
                   <span className="badge text-white bg-danger">2</span>
                 </Link>
 
-                <Link to="/login" className="btn">
+                <Link to="/profile" className="btn">
+                  Profile
+                </Link>
+                 <Link to="/login" className="btn">
                   Login
                 </Link>
                 <Link to="/register" className="btn">
